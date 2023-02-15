@@ -15,7 +15,7 @@ int lastButton_2 = 0;
 void IRAM_ATTR ISR() 
 {
     // Checking the button presses
-    Serial.println("i am in isr\n");
+  
   if(digitalRead(switch_1) == 1 && digitalRead(switch_1) != lastButton_1)
     {
       button_1 = 1;
@@ -43,9 +43,6 @@ void setup()
   attachInterrupt(switch_1, ISR, FALLING);
   attachInterrupt(switch_2, ISR, FALLING);
 
-  Serial.begin(9600);
-  Serial.println("setup done\n");
-
 }
 
 void loop()
@@ -53,10 +50,9 @@ void loop()
 
 
 // The coniditons of the buttons 
-Serial.println("in loop");
   if (button_1 == 1 && button_2 == 0)
     {
-Serial.println("in first if\n");
+
       digitalWrite(switch_2,HIGH);
       delayMicroseconds(50);
       digitalWrite(switch_2,LOW);
@@ -92,7 +88,7 @@ Serial.println("in first if\n");
 
   if (button_1 == 0)
     {
-      Serial.println("in 0\n");
+      
       digitalWrite(switch_1, LOW);
       digitalWrite(switch_2, LOW);
     }

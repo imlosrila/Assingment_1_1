@@ -71,14 +71,14 @@ Serial.println("in loop\n");
         {
           Serial.println("LED1 pulse\n");
           digitalWrite(led_1, HIGH);
-          delay(0.00900 + (i*0.0050));
+          delayMicroseconds(900 + (i*50));
 
           Serial.println("LED1 LOW\n");
           digitalWrite(led_1, LOW);
-          delay(0.000600);
+          delayMicroseconds(600);
         }
 
-       delay(0.006000); 
+       delayMicroseconds(6000); 
     }
 
   if (button_1 == 1 && button_2 == 1 && lastButton_2 != button_2)
